@@ -1,1 +1,38 @@
 
+<h2>Customer Add</h2>
+
+<input id="name" placeholder="Customer Name">
+<input id="phone" placeholder="Phone">
+<input id="package" placeholder="Package">
+<input id="amount" placeholder="Amount">
+
+<button onclick="save()">Save</button>
+
+<ul id="list"></ul>
+
+<script src="firebase.js"></script>
+<script type="module">
+import {
+  collection, addDoc, getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+async function save(){
+  await addDoc(collection(db,"customers"),{
+    name:name.value,
+    phone:phone.value,
+    package:package.value,
+    amount:amount.value
+  });
+  alert("Saved");
+  load();
+}
+
+async function load(){
+  list.innerHTML="";
+  const q=await getDocs(collection(db,"customers"));
+  q.forEach(d=>{
+    list.innerHTML+=`<li>${d.data().name}</li>`;
+  });
+}
+load();
+</script>
