@@ -7,11 +7,11 @@
 
 <hr>
 
-<h3>Add / Edit Bill</h3>
+<h3>Add / Edit Customer Bill</h3>
 
 <input id="docid" hidden>
 
-<input id="userid" placeholder="User ID (UID-1001)"><br>
+<input id="userId" placeholder="User ID (UID-1001)"><br>
 <input id="name" placeholder="Customer Name"><br>
 <input id="phone" placeholder="Phone"><br>
 <input id="pkg" placeholder="Package"><br>
@@ -34,41 +34,10 @@
 
 <hr>
 
-<h3>🔍 Search & Report</h3>
-<input id="searchId" placeholder="User ID">
+<h3>Search & Report</h3>
+<input id="searchId" placeholder="Search by User ID">
 <select id="searchMonth">
 <option value="">All Month</option>
 <option>Jan</option><option>Feb</option><option>Mar</option>
 <option>Apr</option><option>May</option><option>Jun</option>
-<option>Jul</option><option>Aug</option><option>Sep</option>
-<option>Oct</option><option>Nov</option><option>Dec</option>
-</select>
-<button onclick="loadBills()">Search</button>
-
-<hr>
-
-<h3>
-Total: <span id="total">0</span> Tk |
-Paid: <span id="paid">0</span> Tk |
-Due: <span id="due">0</span> Tk
-</h3>
-
-<table border="1">
-<thead>
-<tr>
-<th>User ID</th>
-<th>Name</th>
-<th>Month</th>
-<th>Amount</th>
-<th>Status</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody id="list"></tbody>
-</table>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script type="module" src="app.js"></script>
-
-</body>
-</html>
+<option>Jul</option><option>Aug</option><option>Sep</
