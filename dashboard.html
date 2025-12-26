@@ -7,7 +7,9 @@
 
 <hr>
 
-<h3>Add Customer Bill</h3>
+<h3>Add / Edit Bill</h3>
+
+<input id="docid" hidden>
 
 <input id="userid" placeholder="User ID (UID-1001)"><br>
 <input id="name" placeholder="Customer Name"><br>
@@ -28,12 +30,12 @@
 <option>Due</option>
 </select><br><br>
 
-<button onclick="addBill()">Save Bill</button>
+<button onclick="saveBill()">Save Bill</button>
 
 <hr>
 
-<h3>🔍 Search</h3>
-<input id="searchId" placeholder="Search by User ID">
+<h3>🔍 Search & Report</h3>
+<input id="searchId" placeholder="User ID">
 <select id="searchMonth">
 <option value="">All Month</option>
 <option>Jan</option><option>Feb</option><option>Mar</option>
@@ -45,7 +47,11 @@
 
 <hr>
 
-<h3>Total Collection: <span id="total">0</span> Tk</h3>
+<h3>
+Total: <span id="total">0</span> Tk |
+Paid: <span id="paid">0</span> Tk |
+Due: <span id="due">0</span> Tk
+</h3>
 
 <table border="1">
 <thead>
