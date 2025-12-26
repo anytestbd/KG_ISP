@@ -32,6 +32,19 @@
 
 <hr>
 
+<h3>🔍 Search</h3>
+<input id="searchId" placeholder="Search by User ID">
+<select id="searchMonth">
+<option value="">All Month</option>
+<option>Jan</option><option>Feb</option><option>Mar</option>
+<option>Apr</option><option>May</option><option>Jun</option>
+<option>Jul</option><option>Aug</option><option>Sep</option>
+<option>Oct</option><option>Nov</option><option>Dec</option>
+</select>
+<button onclick="loadBills()">Search</button>
+
+<hr>
+
 <h3>Total Collection: <span id="total">0</span> Tk</h3>
 
 <table border="1">
@@ -42,7 +55,7 @@
 <th>Month</th>
 <th>Amount</th>
 <th>Status</th>
-<th>PDF</th>
+<th>Action</th>
 </tr>
 </thead>
 <tbody id="list"></tbody>
