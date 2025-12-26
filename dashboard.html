@@ -1,38 +1,55 @@
+<!DOCTYPE html>
+<html>
+<body>
 
-<h2>Customer Add</h2>
+<h2>ISP Billing Panel</h2>
+<button onclick="logout()">Logout</button>
 
-<input id="name" placeholder="Customer Name">
-<input id="phone" placeholder="Phone">
-<input id="package" placeholder="Package">
-<input id="amount" placeholder="Amount">
+<hr>
 
-<button onclick="save()">Save</button>
+<h3>Add Customer Bill</h3>
 
-<ul id="list"></ul>
+<input id="userid" placeholder="User ID (UID-1001)"><br>
+<input id="name" placeholder="Customer Name"><br>
+<input id="phone" placeholder="Phone"><br>
+<input id="pkg" placeholder="Package"><br>
 
-<script src="firebase.js"></script>
-<script type="module">
-import {
-  collection, addDoc, getDocs
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+<select id="month">
+<option>Jan</option><option>Feb</option><option>Mar</option>
+<option>Apr</option><option>May</option><option>Jun</option>
+<option>Jul</option><option>Aug</option><option>Sep</option>
+<option>Oct</option><option>Nov</option><option>Dec</option>
+</select><br>
 
-async function save(){
-  await addDoc(collection(db,"customers"),{
-    name:name.value,
-    phone:phone.value,
-    package:package.value,
-    amount:amount.value
-  });
-  alert("Saved");
-  load();
-}
+<input id="amount" placeholder="Amount"><br>
 
-async function load(){
-  list.innerHTML="";
-  const q=await getDocs(collection(db,"customers"));
-  q.forEach(d=>{
-    list.innerHTML+=`<li>${d.data().name}</li>`;
-  });
-}
-load();
-</script>
+<select id="status">
+<option>Paid</option>
+<option>Due</option>
+</select><br><br>
+
+<button onclick="addBill()">Save Bill</button>
+
+<hr>
+
+<h3>Total Collection: <span id="total">0</span> Tk</h3>
+
+<table border="1">
+<thead>
+<tr>
+<th>User ID</th>
+<th>Name</th>
+<th>Month</th>
+<th>Amount</th>
+<th>Status</th>
+<th>PDF</th>
+</tr>
+</thead>
+<tbody id="list"></tbody>
+</table>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
